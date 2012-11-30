@@ -26,4 +26,5 @@ done
 
 unset p
 
+export TERMINFO=/etc/terminfo
 : place customisations above this line
