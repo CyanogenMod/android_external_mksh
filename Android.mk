@@ -63,7 +63,7 @@ LOCAL_CFLAGS:=		-DMKSHRC_PATH=\"/system/etc/mkshrc\" \
 		-DHAVE_STRLCPY=1 -DHAVE_FLOCK_DECL=1 -DHAVE_REVOKE_DECL=1 \
 		-DHAVE_SYS_ERRLIST_DECL=0 -DHAVE_SYS_SIGLIST_DECL=1 \
 		-DHAVE_PERSISTENT_HISTORY=0 -DHAVE_SILENT_IDIVWRAPV=0 \
-		-DMKSH_BUILD_R=431
+		-DMKSH_BUILD_R=481
 
 # check categories: shell:legacy-no int:32 android convfds no-histfile
 
