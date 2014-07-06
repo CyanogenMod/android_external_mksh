@@ -22,6 +22,8 @@ alias la='l -a'
 alias ll='l -l'
 alias lo='l -a -l'
 
+resize
+
 function hd {
 	local -Uui16 -Z11 pos=0
 	local -Uui16 -Z5 hv=2147483647
