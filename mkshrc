@@ -21,7 +21,10 @@ alias la='l -a'
 alias ll='l -l'
 alias lo='l -a -l'
 
-resize
+if [ -z "$NO_RESIZE" ]; then
+	# allow fullscreen in curses tools
+	resize
+fi
 
 function hd {
 	cat "$@" | command hd /proc/self/fd/0
