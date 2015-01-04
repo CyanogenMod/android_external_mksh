@@ -20,4 +20,6 @@ PS4='[$EPOCHREALTIME] '; PS1='${|
 	return $e
 }$HOSTNAME:${PWD:-?} '"$PS1 "
 
-resize
+if [ "z$ANDROID_SOCKET_adbd" != "z" ]; then
+   resize
+fi
