@@ -11,7 +11,7 @@
 : ${HOSTNAME:=android}
 : ${MKSH:=/system/bin/sh}
 : ${SHELL:=$MKSH}
-: ${TERM:=xterm}
+: ${TERM:=linux}
 : ${TMPDIR:=/data/local/tmp}
 : ${USER:=$(id -un)}
 export HOME HOSTNAME MKSH SHELL TERM TMPDIR USER
