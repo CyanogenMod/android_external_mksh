@@ -45,6 +45,12 @@ common_cflags += \
     -DHAVE_SYS_ERRLIST_DECL=0 -DHAVE_SYS_SIGLIST_DECL=1 \
     -DHAVE_PERSISTENT_HISTORY=0 -DMKSH_BUILD_R=521
 
+common_src_files := \
+    src/lalloc.c src/edit.c src/eval.c src/exec.c \
+    src/expr.c src/funcs.c src/histrap.c src/jobs.c \
+    src/lex.c src/misc.c src/shf.c \
+    src/syn.c src/tree.c src/var.c
+
 
 # /system/etc/mkshrc
 include $(CLEAR_VARS)
@@ -55,30 +61,11 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 
-# build a static library first
-include $(CLEAR_VARS)
-LOCAL_MODULE := libmksh
-LOCAL_ADDITIONAL_DEPENDENCIES += $(LOCAL_PATH)/Android.mk
-
-# mksh source files
-LOCAL_SRC_FILES := \
-    src/lalloc.c src/edit.c src/eval.c src/exec.c \
-    src/expr.c src/funcs.c src/histrap.c src/jobs.c \
-    src/lex.c src/misc.c src/shf.c \
-    src/syn.c src/tree.c src/var.c
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/src
-LOCAL_CFLAGS := $(common_cflags)
-LOCAL_CLANG := true
-include $(BUILD_STATIC_LIBRARY)
-
-
 # /system/bin/sh
 include $(CLEAR_VARS)
 LOCAL_MODULE := sh
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := src/main.c
-LOCAL_STATIC_LIBRARIES := libmksh
+LOCAL_SRC_FILES := $(common_src_files) src/main.c
 LOCAL_SYSTEM_SHARED_LIBRARIES := libc
 LOCAL_CFLAGS := $(common_cflags)
 LOCAL_CFLAGS += \
@@ -94,8 +81,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libmksh_static
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := src/main.c
-LOCAL_WHOLE_STATIC_LIBRARIES := libmksh
+LOCAL_SRC_FILES := $(common_src_files) src/main.c
 LOCAL_CFLAGS := $(common_cflags)
 LOCAL_CFLAGS += -Dmain=mksh_main
 LOCAL_CFLAGS += \
