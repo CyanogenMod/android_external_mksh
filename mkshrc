@@ -24,10 +24,6 @@ PS4='[$EPOCHREALTIME] '; PS1='${|
 	return $e
 }$USER@$HOSTNAME:${PWD:-?} '"$PS1 "
 
-if [ "z$ANDROID_SOCKET_adbd" != "z" ]; then
-   resize
-fi
-
 function hd {
 	local -Uui16 -Z11 pos=0
 	local -Uui16 -Z5 hv=2147483647
