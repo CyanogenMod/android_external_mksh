@@ -70,4 +70,6 @@ done
 
 unset p
 
+alias ls=/system/xbin/ls
+
 : place customisations above this line
