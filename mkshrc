@@ -71,5 +71,7 @@ done
 unset p
 
 alias ls=/system/xbin/ls
+alias ll='/system/xbin/ls -l'
+alias la='/system/xbin/ls -al'
 
 : place customisations above this line
